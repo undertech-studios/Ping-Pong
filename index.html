@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pong Arcade Vertical</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="wrap">
+
+    <!-- Panel 1 Jugador -->
+    <div id="panel1P" class="scorePanel">
+      <div class="scoreCard">
+        <div class="scoreLabel">Máx. Global</div>
+        <div class="scoreVal" id="sMax">0</div>
+      </div>
+      <div class="scoreCard">
+        <div class="scoreLabel">Máx. Día</div>
+        <div class="scoreVal" id="sDay">0</div>
+      </div>
+      <div class="scoreCard">
+        <div class="scoreLabel">Partida</div>
+        <div class="scoreVal" id="sCur">0</div>
+      </div>
+    </div>
+
+    <!-- Panel 2 Jugadores -->
+    <div id="panel2P" class="scorePanel hidden">
+      <div class="scoreCard accent-j1">
+        <div class="scoreLabel">▲ Jugador 1</div>
+        <div class="scoreVal" id="sJ1">0</div>
+      </div>
+      <div class="scoreCard centerCard">
+        <div class="scoreLabel">Primer a</div>
+        <div class="scoreVal" id="sTarget">5</div>
+      </div>
+      <div class="scoreCard accent-j2">
+        <div class="scoreLabel">Jugador 2 ▼</div>
+        <div class="scoreVal" id="sJ2">0</div>
+      </div>
+    </div>
+
+    <div id="gameContainer">
+      <canvas id="c"></canvas>
+
+      <!-- ── Overlay de selección de modo ── -->
+      <div id="overlayMode" class="overlay">
+        <div class="ovTitle">PONG ARCADE</div>
+        <div class="ovSub">Elige un modo de juego</div>
+        <div class="modeButtons">
+          <button class="modeBtn" id="btn1P">
+            <span class="modeBtnIcon">◉</span>
+            <span class="modeBtnTitle">1 JUGADOR</span>
+            <span class="modeBtnSub">Ratón / táctil</span>
+          </button>
+          <button class="modeBtn" id="btn2P">
+            <span class="modeBtnIcon">◉◉</span>
+            <span class="modeBtnTitle">2 JUGADORES</span>
+            <span class="modeBtnSub">Local · teclado</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ── Overlay de juego (inicio / game over) ── -->
+      <div id="overlayGame" class="overlay hidden">
+        <div class="ovTitle" id="ovTitle">PONG ARCADE</div>
+        <div class="ovSub"  id="ovSub"></div>
+        <div class="ovScore" id="ovScore"></div>
+        <div class="ovLabel" id="ovLabel"></div>
+        <div class="ovBtns">
+          <button id="playBtn">JUGAR DE NUEVO</button>
+          <button id="menuBtn">MENÚ</button>
+        </div>
+      </div>
+
+      <!-- ── Overlay ganador 2P ── -->
+      <div id="overlayWin" class="overlay hidden">
+        <div class="winBadge" id="winBadge">J1</div>
+        <div class="ovTitle" id="winTitle">¡JUGADOR 1 GANA!</div>
+        <div class="ovSub">Primera al mejor de 5 puntos</div>
+        <div class="winScores" id="winScores"></div>
+        <div class="ovBtns">
+          <button id="rematchBtn">REVANCHA</button>
+          <button id="menuBtn2">MENÚ</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Vidas (solo 1P) -->
+    <div id="livesRow"></div>
+
+    <!-- Controles hint 2P -->
+    <div id="controlsHint" class="hidden">
+      <span class="hint j1hint">▲ J1: teclas <kbd>A</kbd> <kbd>D</kbd></span>
+      <span class="hint j2hint">▼ J2: flechas <kbd>←</kbd> <kbd>→</kbd></span>
+    </div>
+
+  </div>
+
+  <script src="sound.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
